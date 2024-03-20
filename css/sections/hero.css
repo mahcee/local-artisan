@@ -1,0 +1,32 @@
+.hero {
+  height:90vh;
+  background: linear-gradient(rgba(0, 0.5, 0.5, 0.5), rgba(0, 0.5, 0.5, 0.5)),
+    url("../../images/d8a5d14b8adcfc493d304ba1f0a987d0.jpg") no-repeat center
+      center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 5em;
+}
+
+.hero__left h2 {
+  color: white;
+}
+.hero__left h3 {
+  color: white;
+}
+.hero-button{
+  color: white;
+  background-color: burlywood;
+  padding: 2em 3em;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+.hero-button a:hover{
+  color: white;
+  background-color: black;
+}
