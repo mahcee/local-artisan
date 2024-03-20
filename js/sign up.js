@@ -1,20 +1,24 @@
-const input=document.querySelectorAll("#form input");
-const signForms=document.getElementById("form")
+const input=document.querySelectorAll("#forms input");
+const loginButton=document.querySelector(".sign-up");
+console.log(loginButton)
 const message=document.querySelector("#parag");
-console.log(signForms);
-signForms.addEventListener("submit",(e)=>{
+
+loginButton.addEventListener("click",(e)=>{
     e.preventDefault();
-    let message=[];
+    let messages=[];
     validateInputs();
 })
+
 const validateInputs = () =>{
     input.forEach(function (input){
         const label=input.previousElementSibling;
         if(input.value === ""||input.value == null){
             message.textContent="Kindly fill all fields";
+            message.style.color="red";
             input.style.border="1px solid red"
             return;
         }
+// console.log(loginButton);
         else if(
             document.querySelector("input[name=password").value !==
             document.querySelector("input[name=confirm").value
@@ -32,20 +36,10 @@ const validateInputs = () =>{
             label.style.color="black"
         }
     })
-// if(message.textContent.toLocaleLowerCase()===""){
-//     allValidated=true
-// }
-//  if(allValidated === true){
-//     if(localStorage.getItem("users")=== null){
-//         users.push(user)
-//         localStorage.setItem("users",JSON.stringify(users));
-//     } else{
-//         users=JSON.parse(localStorage.getItem("users"));
-//         users.push(user);
-//         localStorage.setItem("users",JSON.stringify(users))
-//     }
-//     window.location.href="http://127.0.0.1:5500/shop.html"
-//  }
+if(message.textContent.toLocaleLowerCase()===""){
+    allValidated=true
+ }
+
 }
 
 

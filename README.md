@@ -11,10 +11,10 @@ Medic-Care is a website for an innovative  medical company where clients can vis
 * HTML
 * CSS
  # live link
- To acces this project live use this [link](https://github.com/mahcee/medic-care.git)
+ To acces this project live use this [link](https://github.com/mahcee/local-artisan.git)
 # Project Set up and Installation.
 1. Open the terminal and navigate to where you want to store the project.eg.`cd Desktop`
-2. To clone the git hub project place this on the terminal `git clone https://github.com/mahcee/medic-care.git`
+2. To clone the git hub project place this on the terminal ``
 3. Use `cd medic-care`to get into the project's directory.
 4. Open the project with your favourite web browser.
  # Contact
