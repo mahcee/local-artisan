@@ -228,5 +228,23 @@
   background-color: black;
 }
 
+.active{
+  border-bottom: 5px solid burlywood;
+  color: burlywood;
+}
 
-
+@media screen and (max-width:530px) {
+  .contact__content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+  }
+  .contact__main{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    flex-wrap: wrap;
+    margin:2em 0 ;
+  }
+}

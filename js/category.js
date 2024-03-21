@@ -1,3 +1,76 @@
+
+
+let selectItems = document.querySelectorAll(".select");
+console.log(selectItems);
+let artItems = document.querySelectorAll(".menu__content__cards");
+console.log(artItems);
+for (let i = 0; i < selectItems.length; i++) {
+  // console.log(selectItems[i])
+  let elements = selectItems[i];
+  if (elements.textContent === `All`) {
+    console.log(elements);
+    elements.classList.add("active");
+  }
+}
+for (let i = 0; i < artItems.length; i++) {
+  console.log(artItems[i]);
+  let elements = artItems[i];
+  if (elements.classList.contains("all")) {
+    elements.style.display = "flex`";
+  } else {
+    elements.style.display = "none";
+  }
+}
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
+  
+    for (let i = 0; i < selectItems.length; i++) {
+      selectItems[i].classList.remove("active");
+    }
+    selectItems[i].classList.add("active");
+    
+    let filterName = selectItems[i].textContent;
+
+    if (filterName === "All") {
+      for (let i = 0; i < artItems.length; i++) {
+        if (artItems[i].classList.contains("all")) {
+          artItems[i].style.display = "flex";
+        } else {
+          artItems[i].style.display = "none";
+        }
+      }
+    } else if (filterName === "Art") {
+      for (let i = 0; i < artItems.length; i++) {
+        if (artItems[i].classList.contains("art")) {
+          artItems[i].style.display = "flex";
+        } else {
+          artItems[i].style.display = "none";
+        }
+      }
+    } else if (filterName === "Craft") {
+      for (let i = 0; i < artItems.length; i++) {
+        if (artItems[i].classList.contains("craft")) {
+          artItems[i].style.display = "flex";
+        } else {
+          artItems[i].style.display = "none";
+        }
+      }
+    } 
+     else {
+      filterName === "Craft";
+      for (let i = 0; i < artItems.length; i++) {
+        if (artItems[i].classList.contains("craft")) {
+          artItems[i].style.display = "flex";
+        } else {
+          artItems[i].style.display = "none";
+        }
+      }
+    }
+  });
+}
+
+
+
 let cartIcon = document.querySelector(".cart-icon");
 let cartItems = [];
 let cartSection = document.querySelector(".cart-section");
@@ -5,27 +78,27 @@ let cartContainer = document.querySelector(".cart-container");
 cartIcon.addEventListener("click", function () {
   cartContainer.classList.toggle("show_cart");
 });
-// if (cartItems.length=== 0){
-//   cartSection.innerHTML=
-//   // `<h3> No items added to cart</h3>`
-// }
+if (cartItems.length=== 0){
+  cartSection.innerHTML=
+  `<h3> No items added to cart</h3>`
+}
 function updateCartItems() {
   cartSection.innerHTML = "";
-  cartItems.map((pizzaItems) => {
+  cartItems.map((artItems) => {
     const cartProducts = document.createElement("div");
     cartProducts.classList.add("cart-product");
     cartProducts.innerHTML = `
-        <img src="${pizzaItems.image}" width="100px" />
+        <img src="${artItems.image}" width="100px" />
         
-        <h3>${pizzaItems.name}</h3>
-        <p class="item-price">${pizzaItems.price}</p>
+        <h3>${artItems.name}</h3>
+        <p class="item-price">${artItems.price}</p>
         <div class="quantity-buttons">
         
         <button class="decrement">-</button>
         <p class="quantity">1</p>
         <button class="increment">+</button>
         </div>
-        <h3 class="price">${pizzaItems.price}</h3>
+        <h3 class="price">${artItems.price}</h3>
 
         `;
     cartSection.append(cartProducts);
@@ -52,46 +125,47 @@ function updateCartItems() {
 }
 const cartCounter = document.getElementById("counter");
 const cartbutton = document.querySelectorAll(".btn");
-cartbutton.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    const pizzaName =
-      e.target.parentElement.parentElement.children[1].children[0].textContent;
-    const pizzaPrice =
-      e.target.parentElement.parentElement.children[1].children[2].textContent.replace(
-        "ksh.",
-        ""
-      );
-    const pizzaImage =
-      e.target.parentElement.parentElement.children[0].children[0].src;
-    if (e.target.textContent.toLowerCase() === "add to cart") {
-      let pizzaItems = {
-        name: pizzaName,
-        price: pizzaPrice,
-        image: pizzaImage,
-      };
-      console.log(e);
-      cartItems.push(pizzaItems);
-      cartCounter.textContent = cartItems.length;
-      updateCartItems();
-      //   cartCounter.textContent = Number(cartCounter.textContent) + 1;
-      e.target.style.background = "transparent";
-      e.target.style.boxShadow = "0 0 5px gray";
-      e.target.style.color = "red";
-      e.target.textContent = "remove from cart";
-    } else {
-      // cartCounter.textContent = Number(cartCounter.textContent) - 1;
-      e.target.textContent = "add to cart";
-      e.target.style.background = "black";
-      e.target.style.color = "white";
-      const indexToRemove = cartItems.findIndex(
-        (item) => item.name === pizzaName
-      );
-      cartItems.splice(indexToRemove, 1);
-      cartCounter.textContent = cartItems.length;
-      updateCartItems();
-    }
-  });
-});
+// cartbutton.forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     const artName =
+//       e.target.parentElement.parentElement.children[1].children[0].textContent;
+//     const artPrice =
+//       e.target.parentElement.parentElement.children[1].children[2].textContent.replace(
+//         "ksh.",
+//         ""
+//         );
+//         console.log(cartbutton)
+//     const artImage =
+//       e.target.parentElement.parentElement.children[0].children[0].src;
+//     if (e.target.textContent.toLowerCase() === "add to cart") {
+//       let artItems = {
+//         name: artName,
+//         price: artPrice,
+//         image: artImage,
+//       };
+//       console.log(e);
+//       cartItems.push(artItems);
+//       cartCounter.textContent = cartItems.length;
+//       updateCartItems();
+//       //   cartCounter.textContent = Number(cartCounter.textContent) + 1;
+//       e.target.style.background = "transparent";
+//       e.target.style.boxShadow = "0 0 5px gray";
+//       e.target.style.color = "red";
+//       e.target.textContent = "remove from cart";
+//     } else {
+//       // cartCounter.textContent = Number(cartCounter.textContent) - 1;
+//       e.target.textContent = "add to cart";
+//       e.target.style.background = "black";
+//       e.target.style.color = "white";
+//       const indexToRemove = cartItems.findIndex(
+//         (item) => item.name === artName
+//       );
+//       cartItems.splice(indexToRemove, 1);
+//       cartCounter.textContent = cartItems.length;
+//       updateCartItems();
+//     }
+//   });
+// });
 cartSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("increment")) {
     const currentQuantityElement = e.target.previousElementSibling;

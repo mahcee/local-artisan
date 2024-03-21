@@ -32,7 +32,7 @@ nav {
     align-items: center;
     gap:2em;
   }
-  @media screen and (max-width:414px) {
+  @media screen and (max-width:530px) {
     .nav__left{
       display: none;
     }
