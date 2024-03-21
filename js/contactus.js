@@ -1,5 +1,5 @@
-const input=document.querySelectorAll("#forms input");
-const loginButton=document.querySelector(".sign-up");
+const input=document.querySelectorAll(".forms input");
+const loginButton=document.querySelector(".login");
 console.log(loginButton)
 const message=document.querySelector("#parag");
 
@@ -10,8 +10,6 @@ loginButton.addEventListener("click",(e)=>{
 })
 
 const validateInputs = () =>{
-    const user = {}
-    let users=[]
     input.forEach(function (input){
         const label=input.previousElementSibling;
         if(input.value === ""||input.value == null){
@@ -39,30 +37,7 @@ const validateInputs = () =>{
         }
     })
 if(message.textContent.toLocaleLowerCase()===""){
-    allValidated=true;
-}
-    if(allValidated === true){
-            if(localStorage.getItem("users")=== null){
-                users.push(user)
-                localStorage.setItem("users",JSON.stringify(users));
-            } else{
-                 users=JSON.parse(localStorage.getItem("users"));
-                users.push(user);
-                localStorage.setItem("users",JSON.stringify(users))
-            }
-           
-          
+    allValidated=true
  }
 
- location.replace("http://127.0.0.1:5500/login.html")
-
 }
-
-
-
-
-
-
-
-
-

@@ -26,3 +26,26 @@ nav {
     background-color:burlywood   ;
     color: aliceblue;
   }
+  .nav__right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:2em;
+  }
+  @media screen and (max-width:414px) {
+    .nav__left{
+      display: none;
+    }
+    .nav__center{
+      display:none;
+    }
+    
+ 
+    
+    .icon__bar{
+      display:block;
+    }
+    
+    
+    }
+    
