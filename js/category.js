@@ -5,10 +5,10 @@ let cartContainer = document.querySelector(".cart-container");
 cartIcon.addEventListener("click", function () {
   cartContainer.classList.toggle("show_cart");
 });
-if (cartItems.length=== 0){
-  cartSection.innerHTML=
-  `<h3> No items added to cart</h3>`
-}
+// if (cartItems.length=== 0){
+//   cartSection.innerHTML=
+//   // `<h3> No items added to cart</h3>`
+// }
 function updateCartItems() {
   cartSection.innerHTML = "";
   cartItems.map((pizzaItems) => {
