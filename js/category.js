@@ -4,6 +4,7 @@ let selectItems = document.querySelectorAll(".select");
 console.log(selectItems);
 let artItems = document.querySelectorAll(".menu__content__cards");
 console.log(artItems);
+// const updateSubTotals={}
 for (let i = 0; i < selectItems.length; i++) {
   // console.log(selectItems[i])
   let elements = selectItems[i];
@@ -125,47 +126,48 @@ function updateCartItems() {
 }
 const cartCounter = document.getElementById("counter");
 const cartbutton = document.querySelectorAll(".btn");
-// cartbutton.forEach((button) => {
-//   button.addEventListener("click", (e) => {
-//     const artName =
-//       e.target.parentElement.parentElement.children[1].children[0].textContent;
-//     const artPrice =
-//       e.target.parentElement.parentElement.children[1].children[2].textContent.replace(
-//         "ksh.",
-//         ""
-//         );
-//         console.log(cartbutton)
-//     const artImage =
-//       e.target.parentElement.parentElement.children[0].children[0].src;
-//     if (e.target.textContent.toLowerCase() === "add to cart") {
-//       let artItems = {
-//         name: artName,
-//         price: artPrice,
-//         image: artImage,
-//       };
-//       console.log(e);
-//       cartItems.push(artItems);
-//       cartCounter.textContent = cartItems.length;
-//       updateCartItems();
-//       //   cartCounter.textContent = Number(cartCounter.textContent) + 1;
-//       e.target.style.background = "transparent";
-//       e.target.style.boxShadow = "0 0 5px gray";
-//       e.target.style.color = "red";
-//       e.target.textContent = "remove from cart";
-//     } else {
-//       // cartCounter.textContent = Number(cartCounter.textContent) - 1;
-//       e.target.textContent = "add to cart";
-//       e.target.style.background = "black";
-//       e.target.style.color = "white";
-//       const indexToRemove = cartItems.findIndex(
-//         (item) => item.name === artName
-//       );
-//       cartItems.splice(indexToRemove, 1);
-//       cartCounter.textContent = cartItems.length;
-//       updateCartItems();
-//     }
-//   });
-// });
+cartbutton.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const artName =
+      e.target.parentElement.parentElement.children[0].textContent;
+      console.log(artName)
+    const artPrice =
+      e.target.parentElement.parentElement.children[1].textContent.replace(
+        "ksh.",
+        ""
+        );
+        console.log(cartbutton)
+    const artImage =
+      e.target.parentElement.parentElement.children[0].children[0].src;
+    if (e.target.textContent.toLowerCase() === "add to cart") {
+      let artItems = {
+        name: artName,
+        price: artPrice,
+        image: artImage,
+      };
+      console.log(e);
+      cartItems.push(artItems);
+      cartCounter.textContent = cartItems.length;
+      updateCartItems();
+      //   cartCounter.textContent = Number(cartCounter.textContent) + 1;
+      e.target.style.background = "transparent";
+      e.target.style.boxShadow = "0 0 5px gray";
+      e.target.style.color = "red";
+      e.target.textContent = "remove from cart";
+    } else {
+      // cartCounter.textContent = Number(cartCounter.textContent) - 1;
+      e.target.textContent = "add to cart";
+      e.target.style.background = "black";
+      e.target.style.color = "white";
+      const indexToRemove = cartItems.findIndex(
+        (item) => item.name === artName
+      );
+      cartItems.splice(indexToRemove, 1);
+      cartCounter.textContent = cartItems.length;
+      updateCartItems();
+    }
+  });
+});
 cartSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("increment")) {
     const currentQuantityElement = e.target.previousElementSibling;
@@ -190,11 +192,24 @@ function updatePrices() {
       const itemName=productItem.querySelector("h3");
       const itemPrice=parseInt(itemName.nextElementSibling.textContent);
       const itemQuantity=parseInt(itemName.nextElementSibling.nextElementSibling.children[1].textContent);
-      const totals=itemPrice*itemQuantity;
-      const itemTotal=itemName.nextElementSibling.nextElementSibling.nextElementSibling;
+      const totals=parseInt(itemPrice*itemQuantity);
+      const itemTotal=parseInt(itemName.nextElementSibling.nextElementSibling.nextElementSibling);
      itemTotal.textContent=totals
       console.log(itemTotal)
   }
 
   
 }
+
+
+function updateSubTotals(){
+  const itemSubTotals=document.querySelectorAll(".price");
+  let subTotals=0;
+  for(let i=0;i<itemSubTotals.length;i++){
+subTotals = subTotals +parseInt(itemSubTotals[i].textContent);
+  }
+
+document.querySelector(".sub-total").textContent=`Ksh. ${subTotals.toLocaleString()}`;
+}
+
+updateCartItems();
